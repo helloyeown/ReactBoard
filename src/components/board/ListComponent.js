@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { createSearchParams } from "react-router-dom";
 import { getList } from "../../api/boardAPI";
+import ListPageComponent from "../common/ListPageComponent";
+
 
 const initState = {
 	dtoList: [],
@@ -14,7 +16,7 @@ const initState = {
 	requestDTO: null
 }
 
-const ListComponent = ({queryObj, movePage}) => {
+const ListComponent = ({queryObj, movePage, moveRead}) => {
 
 	const [listData, setListData] = useState(initState)	// 목록 뿌릴 때 에러 안 나게
 
@@ -31,36 +33,23 @@ const ListComponent = ({queryObj, movePage}) => {
 	// console.log(createSearchParams(queryObj).toString())
 	// page=1&size=10&type=null&keyword=null
 
-	const handleClickPage = (pageNums) => {
-		movePage(pageNums)
-	}
 
 	return (  
 		<div>	
 			<div>List Component</div>
+
 			<div>
 				<ul>
-					{listData.dtoList.map(({bno, title, writer, replyCount}) => <li key={bno}>{bno} - {title} [{replyCount}]</li>)}
+					{listData.dtoList.map(({bno, title, writer, replyCount}) => 
+					<li key={bno}
+					onClick={() => moveRead(bno)}
+					>{bno} - {title} [{replyCount}]</li>)}
 				</ul>
 			</div>
 
-			<div className="m-4 p-2">
-				<ul className="flex">
 
-					{listData.prev ? <li
-					className="m-2 p-2 bg-blue-100 border-2 text-white font-bold rounded"
-					onClick={() => handleClickPage(listData.start -1)}
-					>Prev</li> : <></>}
+			<ListPageComponent movePage={movePage} {...listData}></ListPageComponent>
 
-					{listData.pageNums.map(num => <li key={num} 
-					className="m-2 p-2 bg-blue-100 border-2 text-white font-bold rounded"
-					onClick={() => handleClickPage(num)}>{num}</li>)}
-
-					{listData.next ? <li
-					className="m-2 p-2 bg-blue-100 border-2 text-white font-bold rounded"
-					onClick={() => handleClickPage(listData.end +1)}>Next</li> : <></>}
-				</ul>
-			</div>
 		</div>
 	);
 }
