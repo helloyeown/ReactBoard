@@ -2,9 +2,13 @@ import BasicLayout from "../layouts/BasicLayout";
 import TestLayout from "../layouts/TestLayout";
 
 const MainPage = () => {
+
+
+
 	return (  
 		<BasicLayout>
-			<h2>Main Page</h2>
+			<div className="bg-main h-[100vh] bg-cover bg-no-repeat">
+			</div>
 		</BasicLayout>
 	);
 }

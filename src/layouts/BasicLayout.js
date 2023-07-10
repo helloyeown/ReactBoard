@@ -2,7 +2,7 @@ import SampleNav from "./nav/SampleNav";
 
 const BasicLayout = ({children}) => {
 	return (  
-		<div className="container mx-auto min-w-[1280px] bg-blue-100">
+		<div className="container mx-auto min-w-[1280px] bg-[#fdd000]">
 			<div>
 				<SampleNav>
 					Menu

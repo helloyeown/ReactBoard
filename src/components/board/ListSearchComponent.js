@@ -17,14 +17,14 @@ const ListSearchComponent = ({queryObj, moveSearch}) => {
 	}, [queryObj])
 
 	return (  
-		<div className="m-4 p-4 bg-blue-200 border-2">
-			<select className="border-1 m-2 p-2" 
+		<div className="m-4 p-4">
+			<select className="border m-2 p-2" 
 			value={searchObj.type}
 			onChange={e => {
 				searchObj.type = e.target.value
 				setSearchObj({...searchObj})
 			}}>
-				<option value={''}>---</option>
+				<option value={''}>선택해주세요.</option>
 				<option value={'t'}>제목</option>
 				<option value={'c'}>내용</option>
 				<option value={'w'}>작성자</option>
@@ -33,14 +33,14 @@ const ListSearchComponent = ({queryObj, moveSearch}) => {
 			</select>
 
 			<input type="text"
-			className="border-2 m-2 p-2"
+			className="border m-2 p-2"
 			value={searchObj.keyword}
 			onChange={e => {
 				searchObj.keyword = e.target.value
 				setSearchObj({...searchObj})
 			}}></input>
 
-			<button className="p-2 m-2 border-2"
+			<button className="p-2 m-2 border text-white font-bold bg-[#fdd000] hover:bg-[#ffe056] transition-all"
 			onClick={e => moveSearch(searchObj.type, searchObj.keyword)}
 			>SEARCH</button>
 

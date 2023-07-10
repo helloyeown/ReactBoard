@@ -2,6 +2,7 @@ import { createSearchParams, useNavigate, useSearchParams } from "react-router-d
 import ListComponent from "../../components/board/ListComponent";
 import ListSearchComponent from "../../components/board/ListSearchComponent";
 import useQueryObj from "../../hooks/useQueryObj";
+import BasicLayout from "../../layouts/BasicLayout";
 
 
 
@@ -35,8 +36,7 @@ const ListPage = () => {
 	
 
 	return (  
-		<div>
-			Board List Page
+		<div >
 			<ListSearchComponent queryObj={queryObj} moveSearch={moveSearch}></ListSearchComponent>
 			<ListComponent moveRead={moveRead} queryObj={queryObj} movePage={movePage}></ListComponent>
 		</div>

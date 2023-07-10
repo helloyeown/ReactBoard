@@ -14,7 +14,7 @@ const initState = {
 	requestDTO: null
 }
 
-const ReplyList = ({bno, page, last, refresh, movePage}) => {
+const ReplyList = ({bno, page, last, refresh, movePage, changeCurrent}) => {
 
 	console.log("Reply List........ bno: " + bno)
 
@@ -34,7 +34,10 @@ const ReplyList = ({bno, page, last, refresh, movePage}) => {
 			</div>
 			<div>
 				<ul>
-					{listData.dtoList.map( reply => <li key={reply.rno}>{reply.rno} -- {reply.replyText}</li>)}
+					{listData.dtoList.map( reply => 
+					<li key={reply.rno}
+					onClick={() => changeCurrent(reply.rno)}
+					>{reply.rno} -- {reply.replyText}</li>)}
 				</ul>
 
 				<ListPageComponent {...listData} movePage={movePage}></ListPageComponent>

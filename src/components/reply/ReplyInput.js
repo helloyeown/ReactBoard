@@ -10,7 +10,7 @@ const initState = {
 
 const ReplyInput = ({bno, refreshLast}) => {
 
-	const [reply, setReply] = useState(initState)
+	const [reply, setReply] = useState({...initState})
 
 	const handleChange = (e) => {
 		reply[e.target.name] = e.target.value
