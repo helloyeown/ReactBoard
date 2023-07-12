@@ -7,7 +7,7 @@ const MainPage = () => {
 
 	return (  
 		<BasicLayout>
-			<div className="bg-main h-[100vh] bg-cover bg-no-repeat">
+			<div className="bg-main h-[85vh] bg-cover bg-no-repeat">
 			</div>
 		</BasicLayout>
 	);
